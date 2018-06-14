@@ -1,0 +1,22 @@
+<%= form_for(doctor_specialty) do |f| %>
+  <% if doctor_specialty.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(doctor_specialty.errors.count, "error") %> prohibited this doctor_specialty from being saved:</h2>
+
+      <ul>
+      <% doctor_specialty.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :specialty_id_id %>
+    <%= f.text_field :specialty_id_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
