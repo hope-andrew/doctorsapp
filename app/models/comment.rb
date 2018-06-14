@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-  belongs_to :doctor_id
+  belongs_to :user_id
 end
