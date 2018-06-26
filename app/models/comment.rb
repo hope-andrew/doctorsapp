@@ -1,3 +1,9 @@
 class Comment < ApplicationRecord
-  belongs_to :user_id
+  belongs_to :doctor, :validate => true
+  belongs_to :user, :validate => true
+
+
+  # attr_accessor :doctor_id, :comment_body, :rating, :user_id
+  validates :doctor_id, :comment_body, :rating, :user_id, :presence => true
+  validates :rating, :numericality => { :only_integer => true, :less_than_or_equal_to => 5, :greater_than => 0}
 end

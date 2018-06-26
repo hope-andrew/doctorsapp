@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614163538) do
+ActiveRecord::Schema.define(version: 20180626151415) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "doctor_id"
+    t.text     "comment_body"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["doctor_id"], name: "index_comments_on_doctor_id"
+  end
+
+  create_table "doctor_specialties", force: :cascade do |t|
+    t.integer  "specialty_id_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["specialty_id_id"], name: "index_doctor_specialties_on_specialty_id_id"
+  end
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +41,13 @@ ActiveRecord::Schema.define(version: 20180614163538) do
 
   create_table "specialties", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer  "comments"
+    t.integer  "doctors"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

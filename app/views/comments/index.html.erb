@@ -19,7 +19,7 @@
         <td><%= comment.doctor_id %></td>
         <td><%= comment.comment_body %></td>
         <td><%= comment.rating %></td>
-        <td><%= comment.author_id %></td>
+        <td><%= comment.user_id %></td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
